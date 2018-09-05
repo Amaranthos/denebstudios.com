@@ -8,7 +8,8 @@ injectGlobal({
         width: '100%',
         height: '100%',
         padding: 0,
-        margin: 0
+        margin: 0,
+        minWidth: 320
     },
     html: {
         fontFamily: 'Roboto, sans-serif',
