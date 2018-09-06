@@ -1,8 +1,10 @@
 import styled from 'react-emotion';
 import React, { Component } from 'react';
 
+import { DownArrow, RightArrow } from './Arrow';
+
 const Div = styled('div')({
-    marginTop: '.5rem'
+    marginTop: '.5rem',
 });
 
 const Clickable = styled('div')({
@@ -26,22 +28,6 @@ const Children = styled('div')({
     margin: '.5rem 1rem',
 });
 
-const Arrow = styled('i')(p => ({
-    border: 'solid #FFFFFF',
-    borderWidth: '0 .25em .25em 0',
-    display: 'inline-block',
-    padding: 3,
-    opacity: p.opacity
-}));
-
-const RightArrow = styled(Arrow)({
-    transform: 'rotate(-45deg)'
-});
-
-const DownArrow = styled(Arrow)({
-    transform: 'rotate(45deg)'
-});
-
 export class Collapsible extends React.Component {
     constructor(props) {
         super(props);
@@ -51,8 +37,9 @@ export class Collapsible extends React.Component {
     }
 
     render() {
+        const { classname } = this.props;
         return (
-            <Div>
+            <Div classname={classname}>
                 <Clickable onClick={() => this.setState({ expanded: !this.state.expanded })} >
                     { this.state.expanded ? <DownArrow opacity='.8' /> : <RightArrow opacity='.8' /> }
                     <Title>{ this.props.title }</Title>
