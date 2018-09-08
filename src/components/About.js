@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'react-emotion';
+import Markdown from 'react-remarkable';
 import { onComponentDidMount } from 'react-redux-lifecycle';
 
 import { WithStore } from './WithStore';
 import { fetchAbout } from '../actions';
 import { dispatch } from 'rxjs/internal/observable/pairs';
 
-const About = (about) => (
-    <div>
-        { about.about }
-    </div>
+const About = ({ about }) => (
+    <Markdown>
+        { about }
+    </Markdown>
 );
 
 const AboutWithStore = () => (
