@@ -8,7 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { epics } from './epics';
 import { reducers } from './reducers';
 
-const epicMiddleware = createEpicMiddleware(epics);
+const epicMiddleware = createEpicMiddleware();
 
 ReactGA.initialize('UA-125013636-1');
 ReactGA.pageview('/');
@@ -23,3 +23,5 @@ export const store = createStore(
     , {}
     , composeWithDevTools(applyMiddleware(epicMiddleware))
 );
+
+epicMiddleware.run(epics);
