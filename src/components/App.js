@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 
 import { Navbar } from './Navbar';
+import { ConnectedAbout } from './About';
 import { Collapsible } from './Collapsible';
 
 const Grid = styled('div')({
@@ -22,7 +23,7 @@ export const App = () => (
 		<Grid>
 			<Main>
 				<Collapsible title='About'>
-					<article>Elit fugiat quis fugiat mollit. Pariatur ipsum sit ipsum voluptate anim anim incididunt cupidatat. Veniam ea dolor eu do pariatur quis incididunt ad amet aute eu. Ullamco mollit excepteur veniam officia Lorem velit ipsum mollit esse eiusmod. Quis sunt tempor nisi duis do. Consequat voluptate cupidatat elit elit consequat adipisicing cillum ea officia nulla.</article>
+					<ConnectedAbout />
 				</Collapsible>
 				<Collapsible title='Contact'>
 					<article>Elit fugiat quis fugiat mollit. Pariatur ipsum sit ipsum voluptate anim anim incididunt cupidatat. Veniam ea dolor eu do pariatur quis incididunt ad amet aute eu. Ullamco mollit excepteur veniam officia Lorem velit ipsum mollit esse eiusmod. Quis sunt tempor nisi duis do. Consequat voluptate cupidatat elit elit consequat adipisicing cillum ea officia nulla.</article>
