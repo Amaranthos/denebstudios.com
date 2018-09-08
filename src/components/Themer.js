@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { injectGlobal } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
 
