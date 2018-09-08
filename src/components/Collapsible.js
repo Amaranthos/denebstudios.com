@@ -24,9 +24,10 @@ const Title = styled('h2')({
     fontSize: '.75rem'
 });
 
-const Children = styled('div')({
+const Children = styled('div')(props => ({
     margin: '.5rem 1rem',
-});
+    display: (props.expanded? 'block' : 'none')
+}));
 
 export class Collapsible extends Component {
     constructor(props) {
@@ -44,11 +45,9 @@ export class Collapsible extends Component {
                     { this.state.expanded ? <DownArrow opacity='.8' /> : <RightArrow opacity='.8' /> }
                     <Title>{ this.props.title }</Title>
                 </Clickable>
-                {this.state.expanded &&
-                    <Children>
-                        { this.props.children }
-                    </Children>
-                }
+                <Children expanded={this.state.expanded}>
+                    { this.props.children }
+                </Children>
             </Div>
         );
     }

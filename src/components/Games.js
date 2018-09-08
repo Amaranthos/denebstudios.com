@@ -3,20 +3,38 @@ import styled from 'react-emotion';
 import Markdown from 'react-remarkable';
 import { onComponentDidMount } from 'react-redux-lifecycle';
 
-import { WithStore } from './WithStore';
 import { fetchGames } from '../actions';
-import { dispatch } from 'rxjs/internal/observable/pairs';
+import { WithStore } from './WithStore';
 
 const Games = ({ games }) => (
     <div>
-        { games.map(game => <Game key={game.key} text={game.text} />) }
+        { games.map(game => <Game key={game.key} text={game.text} image={game.image} />) }
     </div>
 );
 
-const Game = (game) => (
-    <Markdown>
-        {game.text}
-    </Markdown>
+const GameDiv = styled('div')({
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    justifyContent: 'space-between',
+
+    '@media (min-width: 750px)': {
+        gridTemplateColumns: '1fr 1fr',
+    }
+});
+
+const Screenshot = styled('img')({
+    width: '100%',
+    height: 'auto',
+    margin: 'auto'
+});
+
+const Game = ({ text, image }) => (
+    <GameDiv>
+        <Markdown>
+            {text}
+        </Markdown>
+        <Screenshot src={image} />
+    </GameDiv>
 );
 
 const GamesWithStore = () => (
