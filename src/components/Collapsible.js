@@ -28,7 +28,7 @@ const Children = styled('div')({
     margin: '.5rem 1rem',
 });
 
-export class Collapsible extends React.Component {
+export class Collapsible extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,9 +37,9 @@ export class Collapsible extends React.Component {
     }
 
     render() {
-        const { classname } = this.props;
+        const { className } = this.props;
         return (
-            <Div classname={classname}>
+            <Div className={className}>
                 <Clickable onClick={() => this.setState({ expanded: !this.state.expanded })} >
                     { this.state.expanded ? <DownArrow opacity='.8' /> : <RightArrow opacity='.8' /> }
                     <Title>{ this.props.title }</Title>
